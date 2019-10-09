@@ -18,7 +18,7 @@ if (process.env.id == 0 || process.env.dev) {
 
 const request = require('request');
 
-// const DBEventState = require('../lib/dbEventState');
+ const DBEventState = require('../lib/dbEventState');
 
 class Warframe {
   /**
@@ -40,7 +40,7 @@ class Warframe {
    * @param {Function} e.i10010n internationalization function
    */
   constructor(e) {
-    // this.dbEvents = new DBEventState(e);
+     this.dbEvents = new DBEventState(e);
     //noinspection JSUnresolvedVariable
     this.client = e.client;
     this.pvpcraft = e.pvpcraft;
