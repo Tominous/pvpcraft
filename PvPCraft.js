@@ -88,7 +88,7 @@ class PvPCraft {
     this.shardCount = parseInt(process.env.shards || "1", 10);
     this.readyPromise = new Promise((resolve /*, reject */) => {
       this.resolveReadyPromise = resolve;
-      // this.rejectReadyPromise = reject;
+       this.rejectReadyPromise = reject;
     });
 
     this.captureMissingTranslation = this.captureMissingTranslation.bind(this);
@@ -284,12 +284,12 @@ class PvPCraft {
     let mention = "<@" + id + ">";
     let name = this.client.user.username;
     console.log(`Loading modules for Shard ${process.env.id} / ${process.env.shards}`.cyan);
-    console.log(`-------------------`.magenta);
+    console.log(`-----------------------`.magenta);
     console.log(`Ready as ${name}`.magenta);
     console.log(`Mention ${mention}`.magenta);
     console.log(`On ${this.client.guilds.size} Servers`.magenta);
     console.log(`Shard ${process.env.id} / ${process.env.shards}`.magenta);
-    console.log(`-------------------`.magenta);
+    console.log(`-----------------------`.magenta);
   }
 
   readyFeeds() {
@@ -730,7 +730,7 @@ class PvPCraft {
     } else {
       prefixes = this.prefix;
     }
-    //console.log(`Prefix ${l}`);
+    console.log(`Prefix ${l}`);
     //Message middleware starts here.
     for (let ware in this.middlewareList) {
       if (this.middlewareList.hasOwnProperty(ware) && this.middlewareList[ware].ware.onMessage) {
