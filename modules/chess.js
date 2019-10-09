@@ -188,7 +188,7 @@ class chess {
         this.games[command.channel.id] = chessClient.create();
         this.turns[command.channel.id] = "white";
         command.replyAutoDeny(command.translate `Game started`);
-        //r.table(table).insert({})
+        r.table(table).insert({})
       },
     }, {
       triggers: ["move"],
