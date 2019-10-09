@@ -14,7 +14,7 @@ const moderationMethodNameMap = {
   kick: "memberRemoved",
 };
 
-/* let colorMap = {
+ let colorMap = {
  "message.deleted": "#FFB600",
  "message.updated": "#FFFF00",
  "channel.created": "#CC0000",
@@ -35,7 +35,7 @@ const moderationMethodNameMap = {
  "action.kick": "#04ff00",
  "action.ban": "#009966",
  "action.unban": "#009966"
- }; */
+ }; 
 
 // 00 3F 7F BE FF
 
@@ -87,7 +87,7 @@ class moderationV2 {
   constructor(e) {
     this.client = e.client;
     this.pvpcraft = e.pvpcraft;
-    //this.logging = {};
+    this.logging = {};
     this.messageSender = e.messageSender;
     this.i10010n = e.i10010n;
     this.config = e.config;
@@ -120,7 +120,7 @@ class moderationV2 {
   }
 
   onReady() {
-    //this.refreshMap();
+    this.refreshMap();
     this.client.on("messageDelete", this.messageDeleted);
     this.client.on("messageDeleteBulk", this.messageDeletedBulk);
     this.client.on("messageUpdate", this.messageUpdated);
@@ -1070,13 +1070,13 @@ class moderationV2 {
             short: true,
           });
         }
-        /* if (JSON.stringify(oldPresence.game) !== JSON.stringify(user.game)) {
+         if (JSON.stringify(oldPresence.game) !== JSON.stringify(user.game)) {
           fields.push({
             title: translate `Game`,
             value: translate `${JSON.stringify(oldPresence.game)} to ${JSON.stringify(user.game)}`,
             short: true,
           });
-        }*/
+        }
         if (fields.length < 2) return;
         this.sendHookedMessage("presence", { user, overrideRoot: "user" }, embed, guild.id);
       }
